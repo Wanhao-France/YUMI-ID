@@ -2,9 +2,9 @@ const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
-const treeify = require('treeify');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
+
 
 const app = express();
 
@@ -52,6 +52,9 @@ function getListSubDirectory(folderName) {
 
     return { subfolders, files };
 }
+
+const whitelist = new Set();
+const blacklist = new Set();
 
 app.use('/route_testing', upload.single('file'), (req, res) => {
     try {
@@ -225,5 +228,6 @@ app.get('/folder_details/:folderName', (req, res) => {
     const { subfolders, files } = getListSubDirectory(folderName);
     res.render('folderDetails', { folderName, subfolders, files });
 });
+
 
 module.exports = app
