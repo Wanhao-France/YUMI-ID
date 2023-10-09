@@ -1,2 +1,4 @@
-node_modules
+node_modules/
+users_config/
+.env
 #http://82.165.249.233:3000/

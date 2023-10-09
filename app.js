@@ -150,7 +150,9 @@ function shouldSaveFile(filePath, newFileHash) {
 
 function generateSequentialShortId() {
     const id = String(++idShortCounter).padStart(8, '0');
+    console.log('Generated ID:', id);
     return id.toUpperCase();
 }
+
 
 module.exports = app;
